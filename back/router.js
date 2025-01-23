@@ -16,4 +16,10 @@ router.get("/clients/:id", getClient);
 router.put("/clients/:id", putClient);
 router.delete("/clients/:id", deleteClient);
 
+router.get("/business");
+router.post("/business");
+router.get("/business/:id");
+router.put("/business/:id");
+router.delete("/business/:id");
+
 export default router;

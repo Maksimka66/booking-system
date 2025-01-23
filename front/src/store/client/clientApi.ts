@@ -7,10 +7,10 @@ export const clientApi = createApi({
     }),
     endpoints: (builder) => ({
         getAllBusiness: builder.query({
-            query: () => "/business",
+            query: () => "/clients",
         }),
         getOneBusiness: builder.query({
-            query: (id) => `/business/${id}`,
+            query: (id) => `/clients/${id}`,
         }),
     }),
 });
