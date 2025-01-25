@@ -8,6 +8,10 @@ export const getOneClientService = async (id) => {
     return await Clients.findById(id);
 };
 
+export const compareUserService = async (email) => {
+    return await Clients.findOne({ email });
+};
+
 export const addClientService = async (client) => {
     return await Clients.create(client);
 };

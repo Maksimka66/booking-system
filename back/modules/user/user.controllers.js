@@ -6,6 +6,7 @@ import "dotenv/config";
 import { clientSchema } from "./dtoUser.js";
 import {
     addClientService,
+    compareUserService,
     deleteClientService,
     getAllClientsService,
     getOneClientService,
@@ -55,9 +56,42 @@ export const addUser = async (req, res) => {
 
         const token = jwt.sign(req.body.email, process.env.ACCESS_TOKEN);
 
-        res.status(201).json({
+        return res.status(201).json({
             username: req.body.username,
             email: req.body.email,
+            id: req.body.id,
+            token,
+        });
+    } catch (e) {
+        res.status(500).json(e.message);
+    }
+};
+
+export const signInUser = async (req, res) => {
+    try {
+        await clientSchema.validateAsync(req.body);
+
+        const compareUser = await compareUserService(req.body.email);
+
+        if (!compareUser) {
+            return res.status(401).json("No such user");
+        }
+
+        const password = await bcryptjs.compare(
+            req.body.password,
+            compareUser.password
+        );
+
+        if (!password) {
+            return res.status(401).json("Your email or password is wrong");
+        }
+
+        const token = jwt.sign(compareUser.email, process.env.ACCESS_TOKEN);
+
+        return res.json({
+            username: compareUser.username,
+            email: compareUser.email,
+            id: compareUser.id,
             token,
         });
     } catch (e) {
