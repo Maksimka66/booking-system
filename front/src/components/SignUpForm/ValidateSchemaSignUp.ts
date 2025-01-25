@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 export const ValidateSchemaSignUp = yup.object().shape({
-    name: yup
+    username: yup
         .string()
         .trim()
         .min(3, 'Name must be at least 3 characters')

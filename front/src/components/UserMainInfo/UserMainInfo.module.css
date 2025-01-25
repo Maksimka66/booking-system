@@ -1,0 +1,42 @@
+.businessUsersList {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.businessUsersListItem {
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.checkboxContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.username {
+    color: #7f867b;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 15px;
+    text-align: left;
+}
+
+.userInfo {
+    color: #d7dfd2;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: left;
+}
+
+.userLabel {
+    color: #09e640;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: left;
+}

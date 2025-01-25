@@ -12,6 +12,8 @@ import {
 } from 'redux-persist';
 import { authApi } from './auth/authApi';
 import { authReducer } from './auth/authSlice';
+import { clientReducer } from './client/clientSlice';
+import { clientApi } from './client/clientApi';
 
 const rootPersistConfig = {
     key: 'bookshelf-auth',
@@ -21,7 +23,9 @@ const rootPersistConfig = {
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    [authApi.reducerPath]: authApi.reducer
+    client: clientReducer,
+    [authApi.reducerPath]: authApi.reducer,
+    [clientApi.reducerPath]: clientApi.reducer
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
@@ -33,7 +37,9 @@ export const store = configureStore({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
             }
-        }).concat(authApi.middleware)
+        })
+            .concat(authApi.middleware)
+            .concat(clientApi.middleware)
 });
 
 export const persistor = persistStore(store);

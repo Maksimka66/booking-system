@@ -1,0 +1,12 @@
+.titleContainer {
+    margin: 0 auto;
+}
+
+.mainHeader {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 38px;
+    text-align: center;
+    color: blueviolet;
+}

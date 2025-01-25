@@ -24,17 +24,17 @@ export const authSlice = createSlice({
         builder.addMatcher(authApi.endpoints.register.matchFulfilled, (state, { payload }) => {
             console.log('Our token', payload);
 
-            // state.username = payload.username;
-            // state.email = payload.email;
-            // state.token = payload.token;
+            state.username = payload.username;
+            state.email = payload.email;
+            state.token = payload.token;
         });
 
         builder.addMatcher(authApi.endpoints.login.matchFulfilled, (state, { payload }) => {
             console.log('Our token', payload);
 
-            // state.username = payload.username;
-            // state.email = payload.email;
-            // state.token = payload.token;
+            state.username = payload.username;
+            state.email = payload.email;
+            state.token = payload.token;
         });
     }
 });

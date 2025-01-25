@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useRegisterMutation } from '@/store/auth/authApi';
@@ -12,13 +13,15 @@ import { Loader } from '../Loader/Loader';
 import styles from './SignUpForm.module.css';
 
 export type SignUpFormType = {
-    name: string;
+    username: string;
+    // role?: 'client' | 'business';
     email: string;
     password: string;
     confirmPassword: string;
 };
 
 export const SignUpForm = () => {
+    const [role, setRole] = useState('client');
     const [registerUser, { isLoading }] = useRegisterMutation();
     const navigation = useRouter();
 
@@ -31,9 +34,9 @@ export const SignUpForm = () => {
         resolver: yupResolver(ValidateSchemaSignUp)
     });
 
-    const onSubmit: SubmitHandler<SignUpFormType> = async ({ email, name, password }) => {
+    const onSubmit: SubmitHandler<SignUpFormType> = async ({ email, username, password }) => {
         try {
-            await registerUser({ email, name, password });
+            await registerUser({ email, username, password, role });
 
             navigation.push('/');
         } catch (error) {
@@ -42,6 +45,8 @@ export const SignUpForm = () => {
     };
 
     if (isLoading) return <Loader />;
+
+    console.log(role);
 
     return (
         <div className={styles.signUpContainer}>
@@ -52,10 +57,15 @@ export const SignUpForm = () => {
                             type='text'
                             placeholder='Enter name'
                             label='Name'
-                            error={errors.name?.message}
-                            register={register('name')}
+                            error={errors.username?.message}
+                            register={register('username')}
                             id='name'
                         />
+                        <select onChange={(e) => setRole(e.target.value)}>
+                            <option value='client'>Client</option>
+                            <option value='business'>Business</option>
+                        </select>
+                        {/* <p>{errors.role?.message}</p> */}
                         <Input
                             type='email'
                             placeholder='your@email.com'

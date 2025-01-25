@@ -60,6 +60,7 @@ export const addUser = async (req, res) => {
             username: req.body.username,
             email: req.body.email,
             id: req.body.id,
+            role: req.body.role,
             token,
         });
     } catch (e) {

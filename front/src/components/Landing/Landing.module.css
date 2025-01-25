@@ -1,0 +1,50 @@
+.landingPageContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.routesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.signInLink {
+    padding: 0 39px;
+    color: #242a37;
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 38px;
+    text-align: center;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: #ffffff;
+    box-shadow: 0px 2px 4px 0px rgba(175, 113, 113, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signUpLink {
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 38px;
+    text-align: center;
+    border: 1px solid #000000;
+    padding: 0 39px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    color: #000000;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signInLink:hover,
+.signUpLink:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
