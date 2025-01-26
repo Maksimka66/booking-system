@@ -65,7 +65,7 @@ export const SignUpForm = () => {
                             <option value='client'>Client</option>
                             <option value='business'>Business</option>
                         </select>
-                        {/* <p>{errors.role?.message}</p> */}
+
                         <Input
                             type='email'
                             placeholder='your@email.com'

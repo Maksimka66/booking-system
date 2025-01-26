@@ -3,11 +3,13 @@ import { clientApi } from './clientApi';
 import { IResponse } from '@/components/UserMainInfo/UserMainInfo';
 
 interface IClientState {
+    allUsers: IResponse[];
     allConsultants: IResponse[];
     reserved: IResponse[];
 }
 
 const initialState: IClientState = {
+    allUsers: [],
     allConsultants: [],
     reserved: []
 };

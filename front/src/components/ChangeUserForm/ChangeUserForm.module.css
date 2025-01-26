@@ -1,0 +1,77 @@
+.signUpContainer {
+    width: 100%;
+    padding: 32px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+    min-width: 280px;
+}
+
+.formSignUpContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.signUpSubmitButton {
+    font-family: Montserrat, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.loginNavText {
+    font-family: Montserrat, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+    color: #898f9f;
+}
+
+.loginNavLink {
+    font-family: Montserrat, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+    color: #ff6b08;
+}
+
+@media (min-width: 768px) {
+    .signUpForm {
+        gap: 35px;
+    }
+
+    .signUpContainer {
+        padding: 64px 0;
+        gap: 35px;
+    }
+
+    .secondSignUpContainer {
+        padding: 40px;
+    }
+
+    .signUpForm {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .signUpContainer {
+        padding: 245px 74px;
+    }
+}
